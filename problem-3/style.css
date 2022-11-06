@@ -21,3 +21,64 @@ body {
     align-items: center;
     height: 100vh;
 }
+
+.search {
+    padding: 10px;
+}
+
+.search-image {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+.search-text {
+    padding: 4px;
+}
+
+.search-input {
+    padding: 8px;
+    margin: 8px;
+}
+
+.search-button {
+    padding: 8px;
+    margin: 2px;
+    background-color: blueviolet;
+    color: #f1f5f8;
+    cursor: pointer;
+    border: none;
+}
+
+.profile, .repos {
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 8px 8px 2px 1px rgb (0, 0, 255, .2);
+    
+    margin: 15px;
+}
+
+.delete-button {
+    padding: 8px;
+    background-color: rgb(237, 68, 68);
+    color: #f1f5f8;
+    border: none;
+    border-radius: 2px;
+}
+
+.record {
+    display: flex;
+    flex-direction: row;
+}
+
+.repo {
+    width: 100%;
+}
+
+hr {
+    margin: 5px;
+}
