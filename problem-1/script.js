@@ -84,9 +84,26 @@ window.onload = function() {
 		// create new contact
 
 		contactsArray.push(new Contact(contactName, phoneNumber, emailAddress));
+        document.getElementById("inputSearch").removeAttribute('disabled');
 		showTable();
 	});
 
+    // search contacts
+
+    document.getElementById("inputSearch").addEventListener("input", (e) => showTable(e.target.value));
+
+    // sort contacts
+
+	document.getElementById("sort").addEventListener("click", () => {
+		if(sortDirection === 1) {
+			contactsArray.sort((a, b) => a.contactName.localeCompare(b.contactName));
+			sortDirection = -1;
+		}else {
+			contactsArray.sort((a, b) => b.contactName.localeCompare(a.contactName));
+			sortDirection = 1;
+		}
+		showTable();
+    });
 
 };
 
@@ -108,7 +125,7 @@ function showTable(searchedNumber) {
     // filter array if search number provided
 
 	if (searchedNumber) {
-		filteredArray = filteredArray.filter(contact => (contact.getPhone()+"").includes(searchedNumber));
+		filteredArray = filteredArray.filter(contact => (contact.getPhoneNumber()+"").includes(searchedNumber));
 	}
 
     // get table and no result divs

@@ -10,16 +10,19 @@
   </head>
   <body>
     <div class="container">
+        <!-- Heading -->
         <div class="container d-flex justify-content-center my-3">
             <h1>Phone Directory</h1>
         </div>
+
+        <!-- Inputs -->
         <form>
             <div class="row g-3 align-items-center">
                 <div class="col-auto">
                     <input type="text" id="inputContactName" class="form-control" placeholder="Contact Name">
                 </div>
                 <div class="col-auto">
-                    <input type="number" id="inputPhoneNumber" class="form-control" placeholder="Phone Number">
+                    <input type="text" id="inputPhoneNumber" class="form-control" placeholder="Phone Number">
                 </div>
                 <div class="col-auto">
                     <input type="email" id="inputEmailAddress" class="form-control" placeholder="Email Address">
@@ -29,7 +32,7 @@
                 </div>
                 <div class="col">
                     <div class="float-end">
-                        <input type="number" id="inputSearch" class="form-control" placeholder="Search">
+                        <input type="text" id="inputSearch" class="form-control" placeholder="Search" disabled>
                     </div>
                 </div>
               </div>
@@ -37,17 +40,19 @@
 
         <hr class="my-5">
 
+        <!-- No Results -->
         <div class="alert alert-primary d-none" role="alert" id="noResult">
             No Results!
         </div>
 
-        <table class="table table-striped">
+        <!-- Table -->
+        <table class="table table-striped d-none">
             <thead>
-              <tr>
-                <th scope="col">Contact Name</th>
-                <th scope="col">Phone Number</th>
-                <th scope="col">Email Address</th>
-              </tr>
+                <tr>
+                    <th scope="col" id="sort" role="button">Contact Name</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Email Address</th>
+                </tr>
             </thead>
             <tbody>
             </tbody>
