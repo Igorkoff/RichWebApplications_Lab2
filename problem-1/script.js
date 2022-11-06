@@ -83,7 +83,7 @@ window.onload = function() {
 
 		// create new contact
 
-		contactsArray.push(new Contact(contactNameInput, phoneNumber, emailAddress));
+		contactsArray.push(new Contact(contactName, phoneNumber, emailAddress));
 		showTable();
 	});
 
@@ -95,4 +95,46 @@ function showErrorMessage(message) {
     let errorModal = new bootstrap.Modal(document.getElementById("errorModal"));
     document.getElementById("error-text").innerHTML = message;
     errorModal.show();
+}
+
+function showTable(searchedNumber) {
+	const tableBody = document.querySelector("tbody");
+	let filteredArray = contactsArray;
+
+	while (tableBody.lastChild) {
+		tableBody.removeChild(tableBody.lastChild);
+	}
+
+    // filter array if search number provided
+
+	if (searchedNumber) {
+		filteredArray = filteredArray.filter(contact => (contact.getPhone()+"").includes(searchedNumber));
+	}
+
+    // get table and no result divs
+
+	const table = document.querySelector("table");
+	const noResult = document.getElementById("noResult");
+
+    // visibility manipulations
+
+	if (filteredArray.length === 0) {
+		table.classList.add("d-none");
+		noResult.classList.remove("d-none");
+	} else {
+		document.getElementsByTagName("table")[0].classList.remove("d-none");
+		noResult.classList.add("d-none");
+	}
+
+    // add rows to the table from the array
+
+	filteredArray.forEach(function(contact) {
+		const row = document.createElement("tr");
+		row.innerHTML = `
+			<td>${contact.getContactName()}</td>
+			<td>${contact.getPhoneNumber()}</td>
+			<td>${contact.getEmailAddress()}</td>
+		`;
+		tableBody.appendChild(row);
+	});
 }
