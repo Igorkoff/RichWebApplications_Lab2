@@ -4,10 +4,16 @@ const mainElement = document.querySelector('.main');
 
 const formElement = document.createElement('form');
 formElement.classList.add('search');
-formElement.addEventListener('submit', (e) => {
+formElement.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const inputValue = Object.fromEntries(new FormData(e.target));
+    const response = await fetch(`https://api.github.com/users/${inputValue.name}`);
+
+    if (response.ok) {
+        const data = await response.json();
+    } else {
+        alert("User Not Found");
+    }
 });
 
 const inputElement = document.createElement('input');
