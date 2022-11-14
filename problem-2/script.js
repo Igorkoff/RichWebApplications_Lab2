@@ -1,6 +1,6 @@
 async function fetchPosts() {
     response = await fetch("http://jsonplaceholder.typicode.com/posts");
-    data = response.json();
+    data = await response.json();
 
     // list all of the post titles having more than six words
     
